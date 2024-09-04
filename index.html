@@ -3,13 +3,22 @@
 <head>
     <title>Genel Kültür Testi</title>
     <link rel="stylesheet" href="style.css">
+    <audio id="devam">
+        <source src="Medya/tabi-efendim.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ipucu">
+        <source src="Medya/aglama-hadi-oyna.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="letzgo">
+        <source src="Medya/okay-lets-go_buBmJye.mp3" type="audio/mpeg">
+    </audio>
 </head>
 <body style="background-color: gray;">
     <div class="container">
         <div class="background-box">
             <div class="content-box" id="baslangicEkrani">
                 <h2>Genel Kültürünü Test Etmeye Hazır mısın?</h2>
-                <button class="basla" id="baslaButonu">Evet</button>
+                <button class="basla" id="baslaButonu" onclick="playAudio3()">Evet</button>
             </div>
             <div class="soru-container" id="soruEkrani" style="display: none;">
                 <p class="soru"></p>
@@ -19,9 +28,9 @@
                     <button class="secenek">C</button>
                     <button class="secenek">D</button>
                     <p id="ipucu1"></p>
-                    <button class="ipucu" id="ipucu2"> İpucu</button>
+                    <button class="ipucu" id="ipucu2" onclick="playAudio2()"> İpucu</button>
                     <p id="bilgilendirme"></p>
-                    <button class="ipucu" id="baslaButonu2">Yeni soru</button>
+                    <button class="ipucu" id="baslaButonu2" onclick="playAudio()">Yeni soru</button>
                 </div> 
             </div>
         </div>
@@ -43,5 +52,20 @@
             document.onmousedown = function(){return false}
         }
     </script>
+    <script>
+        let audio = document.getElementById("devam");
+        let audio2 = document.getElementById("ipucu");
+        let audio3 = document.getElementById("letzgo");
+        function playAudio() {
+          audio.play();
+        }
+        function playAudio2() {
+          audio2.play();
+        }
+        function playAudio3() {
+          audio3.play();
+        }
+
+      </script>
 </body>
 </html>

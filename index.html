@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Genel Kültür Testi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: gray;">
+    <div class="container">
+        <div class="background-box">
+            <div class="content-box" id="baslangicEkrani">
+                <h2>Genel Kültürünü Test Etmeye Hazır mısın?</h2>
+                <button class="basla" id="baslaButonu">Evet</button>
+            </div>
+            <div class="soru-container" id="soruEkrani" style="display: none;">
+                <p class="soru"></p>
+                <div class="secenekler">
+                    <button class="secenek">A</button>
+                    <button class="secenek">B</button>
+                    <button class="secenek">C</button>
+                    <button class="secenek">D</button>
+                    <p id="ipucu1"></p>
+                    <button class="ipucu" id="ipucu2"> İpucu</button>
+                    <p id="bilgilendirme"></p>
+                    <button class="ipucu" id="baslaButonu2">Yeni soru</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="bilgi-kutusu"></div>
+    <script src="main.js"></script>
+    <script language=JavaScript>
+        document.oncontextmenu = function(){return false}
+        if(document.layers) 
+        {
+            window.captureEvents(Event.MOUSEDOWN);
+            window.onmousedown = function(e)
+            {
+            if(e.target==document)return false;
+            }
+        }
+        else 
+        {
+            document.onmousedown = function(){return false}
+        }
+    </script>
+</body>
+</html>

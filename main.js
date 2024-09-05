@@ -9,6 +9,7 @@ const bilgilendirme = document.getElementById('bilgilendirme');
 const ipucu = document.getElementById('ipucu1');
 const ipucu2 = document.getElementById('ipucu2');
 let myAudio = document.querySelector('#audio')
+let myAudio2 = document.querySelector('#audio2')
 
 const sorular = [
   {
@@ -315,6 +316,7 @@ baslaButonu2.addEventListener('click', () => {
     soruEkrani.style.display = 'block';
     bilgilendirme.textContent = "";
     ipucu.textContent = "";
+    
     gosterSoru();
 });
 
@@ -333,10 +335,15 @@ function gosterSoru() {
             if (index === randomSoru.dogruCevap) {
                 secenek.style.backgroundColor = 'green';
                 bilgilendirme.textContent = "Doğru cevap!";
+                myAudio.volume = 0;
+                myAudio2.volume = 1;
+                myAudio2.play();
             } else {
                 secenek.disabled = true ;
                 secenek.style.backgroundColor = 'red';
                 bilgilendirme.textContent = "Yanlış cevap. İyi Düşünün...";
+                myAudio.volume = 1;
+                myAudio2.volume = 0;
                 myAudio.play();
             }
             

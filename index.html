@@ -13,6 +13,7 @@
         <source src="Medya/okay-lets-go_buBmJye.mp3" type="audio/mpeg">
     </audio>
     <audio id="audio" src="Medya/ReelAudio-56610 (mp3cut.net).mp3"></audio>
+    <audio id="audio2" src="Medya/depositphotos_424970962-track-applause-cheering-crowd-sound-effect (mp3cut.net).mp3"></audio>
 </head>
 <body style="background-color: gray;">
     <div class="container">
@@ -29,7 +30,7 @@
                     <button class="secenek">C</button>
                     <button class="secenek">D</button>
                     <p id="ipucu1"></p>
-                    <button class="ipucu" id="ipucu2" onclick="playAudio2()"> İpucu</button>
+                    <button class="ipucu" id="ipucu2" onclick="playAudio2() "> İpucu</button>
                     <p id="bilgilendirme"></p>
                     <button class="ipucu" id="baslaButonu2" onclick="playAudio()">Yeni soru</button>
                 </div> 
@@ -61,6 +62,7 @@
           audio.play();
         }
         function playAudio2() {
+            audio2.volume=0.1;
           audio2.play();
         }
         function playAudio3() {

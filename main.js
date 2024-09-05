@@ -8,8 +8,135 @@ const bilgiKutusu = document.querySelector('.bilgi-kutusu');
 const bilgilendirme = document.getElementById('bilgilendirme');
 const ipucu = document.getElementById('ipucu1');
 const ipucu2 = document.getElementById('ipucu2');
+let myAudio = document.querySelector('#audio')
 
 const sorular = [
+  {
+    soru: "Dünyadaki en büyük tatlı su gölü hangisidir?",
+    cevaplar: ["Hazar Denizi", "Superior Gölü", "Victoria Gölü", "Tuz Gölü"],
+    dogruCevap: 1,
+    ipucu: "Bu göl, Kuzey Amerika'da yer alır ve en büyük tatlı su gölü olarak bilinir."
+  },
+  {
+    soru: "Hangi gezegen 'Yüzükler Gezegeni' olarak bilinir?",
+    cevaplar: ["Satürn", "Neptün", "Jüpiter", "Uranüs"],
+    dogruCevap: 0,
+    ipucu: "Bu gezegen, en belirgin halkaları ile tanınır."
+  },
+  {
+    soru: "İnsan vücudunda en fazla bulunan element hangisidir?",
+    cevaplar: ["Oksijen", "Karbon", "Hidrojen", "Azot"],
+    dogruCevap: 2,
+    ipucu: "Bu element, suyun ve dolayısıyla vücudun büyük bir kısmını oluşturur."
+  },
+  {
+    soru: "Hangi gezegenin yüzeyinde en yüksek dağ bulunur?",
+    cevaplar: ["Mars", "Venüs", "Jüpiter", "Uranüs"],
+    dogruCevap: 0,
+    ipucu: "Bu gezegen Olympus Mons adlı dev bir dağa ev sahipliği yapar."
+  },
+  {
+    soru: "Hangi organ vücutta en fazla kanı depolar?",
+    cevaplar: ["Karaciğer", "Akciğer", "Kalp", "Dalak"],
+    dogruCevap: 3,
+    ipucu: "Bu organ, kanın büyük bir kısmını depolayabilen bir organ olarak bilinir."
+  },
+  {
+    soru: "Hangi matematiksel formül, bir dairenin çevresini hesaplamada kullanılır?",
+    cevaplar: ["Çevre = 2πr", "Çevre = πr²", "Çevre = 2r", "Çevre = πd"],
+    dogruCevap: 0,
+    ipucu: "Bu formül, dairenin çevresini hesaplamak için yarıçapı kullanır."
+  },
+  {
+    soru: "İnsan vücudundaki en büyük organ hangisidir?",
+    cevaplar: ["Cilt", "Karaciğer", "Kalp", "Akciğer"],
+    dogruCevap: 0,
+    ipucu: "Bu organ, vücudu dış etkenlerden koruyan ve en geniş yüzey alanına sahip olandır."
+  },
+  {
+    soru: "Hangi gezegen 'Gece ve Gündüz' gezegeni olarak bilinir?",
+    cevaplar: ["Venüs", "Mars", "Jüpiter", "Satürn"],
+    dogruCevap: 0,
+    ipucu: "Bu gezegenin uzun süreli gece ve gündüz dönemleri vardır."
+  },
+  {
+    soru: "Hangi organ, insana tat alma duyusunu sağlar?",
+    cevaplar: ["Dudaklar", "Dil", "Burn", "Ağız"],
+    dogruCevap: 1,
+    ipucu: "Bu organ, tat reseptörlerini içerir ve yiyeceklerin tatlarını algılar."
+  },
+  {
+    soru: "Hangi gezegen 'Yıldızların Kraliçesi' olarak bilinir?",
+    cevaplar: ["Venüs", "Mars", "Neptün", "Jüpiter"],
+    dogruCevap: 0,
+    ipucu: "Bu gezegen, gece gökyüzünde oldukça parlak bir şekilde görünür."
+  },
+  {
+    soru: "Hangi gezegen 'Gözyaşı Gezegeni' olarak bilinir?",
+    cevaplar: ["Uranüs", "Neptün", "Venüs", "Satürn"],
+    dogruCevap: 1,
+    ipucu: "Bu gezegen, mavi renkli atmosferi nedeniyle bu şekilde adlandırılmıştır."
+  },
+  {
+    soru: "En uzun insan kemiği hangisidir?",
+    cevaplar: ["Kafatası", "Femur (Uyluk kemiği)", "Kaval Kemiği", "Omurga"],
+    dogruCevap: 1,
+    ipucu: "Bu kemik, bacakta yer alır ve uzunluğu nedeniyle en uzun insan kemiği olarak bilinir."
+  },
+  {
+    soru: "Hangi gezegen en yüksek volkanlara sahiptir?",
+    cevaplar: ["Venüs", "Mars", "Jüpiter", "Satürn"],
+    dogruCevap: 1,
+    ipucu: "Bu gezegen, Olympus Mons adlı dev volkan ile tanınır."
+  },
+  {
+    soru: "Hangi gezegen 'Kırmızı Gezegen' olarak bilinir?",
+    cevaplar: ["Venüs", "Mars", "Jüpiter", "Satürn"],
+    dogruCevap: 1,
+    ipucu: "Bu gezegenin yüzeyi demir oksitten dolayı kırmızı görünür."
+  },
+  {
+    soru: "Dünyanın en büyük okyanusu hangisidir?",
+    cevaplar: ["Pasifik Okyanusu", "Atlantik Okyanusu", "Hint Okyanusu", "Arktik Okyanusu"],
+    dogruCevap: 0,
+    ipucu: "Bu okyanus, yüzölçümü bakımından en geniş okyanustur."
+  },
+  {
+    soru: "Bir atomun çekirdeğinde bulunan pozitif yüklü parçacıklara ne denir?",
+    cevaplar: ["Elektron", "Nötron", "Proton", "Foton"],
+    dogruCevap: 2,
+    ipucu: "Bu parçacıklar, atomun çekirdeğinde bulunur ve pozitif yük taşır."
+  },
+  {
+    soru: "Hangi gezegenin atmosferinde en yüksek rüzgar hızları görülür?",
+    cevaplar: ["Uranüs", "Venüs", "Neptün", "Jüpiter"],
+    dogruCevap: 2,
+    ipucu: "Bu gezegen, atmosferindeki güçlü rüzgarları ile bilinir."
+  },
+  {
+    soru: "Mona Lisa tablosunun yazarının gerçek adı nedir?",
+    cevaplar: ["Leonardo da Vinci", "Raphael", "Michelangelo", "Caravaggio"],
+    dogruCevap: 0,
+    ipucu: "Bu sanatçı, aynı zamanda \"Son Akşam Yemeği\" tablosunun da yaratıcısıdır."
+  },
+  {
+    soru: "Dünyanın en büyük denizi hangisidir?",
+    cevaplar: ["Karadeniz", "Akdeniz", "Hazar Denizi", "Kızıl Deniz"],
+    dogruCevap: 2,
+    ipucu: "Bu deniz, yüzölçümü bakımından en geniş iç denizdir."
+  },
+  {
+    soru: "Hangi element elektronegatiflik açısından en yüksektir?",
+    cevaplar: ["Flor", "Oksijen", "Klor", "Azot"],
+    dogruCevap: 0,
+    ipucu: "Bu element, kimyasal bağlarda en yüksek çekme kapasitesine sahiptir."
+  },
+  {
+    soru: "Hangi gezegen 'Doğum Günü Gezegeni' olarak bilinir?",
+    cevaplar: ["Uranüs", "Neptün", "Jüpiter", "Venüs"],
+    dogruCevap: 0,
+    ipucu: "Bu gezegenin eğik ekseni nedeniyle ilginç bir rotasyon hareketi vardır."
+  },
   {
     soru: "Newton'un ikinci hareket kanunu nedir?",
     cevaplar: ["F = ma (Kuvvet eşittir kütle çarpı ivme)", "F = mv", "F = m/g", "F = m/a"],
@@ -210,7 +337,7 @@ function gosterSoru() {
                 secenek.disabled = true ;
                 secenek.style.backgroundColor = 'red';
                 bilgilendirme.textContent = "Yanlış cevap. İyi Düşünün...";
-                
+                myAudio.play();
             }
             
         });
